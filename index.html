@@ -5,69 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gran Sorteo de una Moto</title>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Reemplaza TU_RECAPTCHA_SITE_KEY con tu clave pública -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <main class="page">
-    <section class="form-card">
-      <img src="assets/logo.png" alt="Logo" class="logo">
+    <section class="photo-panel">
+      <img src="assets/premio.jpg" alt="Moto del sorteo">
+      <div class="photo-label">
+        <span>Premio principal</span>
+        <strong>Gana una moto</strong>
+      </div>
+    </section>
 
-      <h1>Gran Sorteo de una Moto</h1>
-      <p class="subtitle">Completa tus datos para participar.</p>
-
-      <form id="raffleForm" novalidate>
-        <label>
-          Nombre completo *
-          <input type="text" id="fullName" autocomplete="name">
-          <small id="fullNameError"></small>
-        </label>
-
-        <label>
-          Número de WhatsApp *
-          <input type="tel" id="whatsapp" placeholder="+593999999999" autocomplete="tel">
-          <small id="whatsappError"></small>
-        </label>
-
-        <label>
-          Ciudad *
-          <input type="text" id="city">
-          <small id="cityError"></small>
-        </label>
-
-        <label>
-          Correo electrónico opcional
-          <input type="email" id="email" autocomplete="email">
-          <small id="emailError"></small>
-        </label>
-
-        <label class="check">
-          <input type="checkbox" id="terms">
-          <span>Acepto términos y política de privacidad.</span>
-        </label>
-        <small id="termsError"></small>
-
-        <label class="check">
-          <input type="checkbox" id="marketingConsent">
-          <span>Acepto recibir promociones por WhatsApp.</span>
-        </label>
-
-        <div class="captcha-wrap">
-          <div class="g-recaptcha" data-sitekey="6LcFlOUsAAAAAGW2ndsYRtHsV-lZvKF31v64xyLM"></div>
+    <section class="form-panel">
+      <div class="form-card">
+        <div class="organizer">
+          <img src="assets/persona.jpg" alt="Organizador del sorteo">
+          <div>
+            <span>Organiza</span>
+            <strong>Gran Sorteo de una Moto</strong>
+          </div>
         </div>
-        <small id="captchaError"></small>
 
-        <button type="submit" id="submitButton">
-          <span id="buttonText">Participar ahora</span>
-        </button>
+        <h1>Participa ahora</h1>
+        <p class="subtitle">Completa tus datos para registrar tu participación.</p>
 
-        <div id="messageBox"></div>
+        <form id="raffleForm" novalidate>
+          <label>
+            Nombres y apellidos completos *
+            <input type="text" id="fullName" autocomplete="name">
+            <small id="fullNameError"></small>
+          </label>
 
-        <a href="#" id="whatsappLink" class="whatsapp-link" target="_blank" rel="noopener">
-          Confirmar por WhatsApp
-        </a>
-      </form>
+          <label>
+            Número de celular o WhatsApp *
+            <input type="tel" id="whatsapp" placeholder="+593999999999" autocomplete="tel">
+            <small id="whatsappError"></small>
+          </label>
+
+          <label>
+            Correo electrónico opcional
+            <input type="email" id="email" autocomplete="email">
+            <small id="emailError"></small>
+          </label>
+
+          <label>
+            Número de cédula *
+            <input type="text" id="documentId" inputmode="numeric" maxlength="10" autocomplete="off">
+            <small id="documentIdError"></small>
+          </label>
+
+          <label>
+            Ciudad *
+            <select id="city">
+              <option value="">Selecciona tu ciudad</option>
+              <option value="MILAGRO">MILAGRO</option>
+            </select>
+            <small id="cityError"></small>
+          </label>
+
+          <label>
+            Parroquia *
+            <select id="parish">
+              <option value="">Selecciona tu parroquia</option>
+              <option value="MILAGRO">MILAGRO</option>
+              <option value="CHOBO">CHOBO</option>
+              <option value="ROBERTO ASTUDILLO">ROBERTO ASTUDILLO</option>
+              <option value="MARISCAL SUCRE/HUAQUES">MARISCAL SUCRE/HUAQUES</option>
+            </select>
+            <small id="parishError"></small>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" id="terms">
+            <span>Acepto términos y política de privacidad.</span>
+          </label>
+          <small id="termsError"></small>
+
+          <label class="check">
+            <input type="checkbox" id="marketingConsent">
+            <span>Acepto recibir información promocional por WhatsApp.</span>
+          </label>
+
+          <div class="captcha-wrap">
+            <div class="g-recaptcha" data-sitekey="TU_RECAPTCHA_SITE_KEY"></div>
+          </div>
+          <small id="captchaError"></small>
+
+          <button type="submit" id="submitButton">
+            <span id="buttonText">Participar ahora</span>
+          </button>
+
+          <div id="messageBox"></div>
+
+          <a href="#" id="whatsappLink" class="whatsapp-link" target="_blank" rel="noopener">
+            Confirmar por WhatsApp
+          </a>
+
+          <p class="privacy-note">
+            Solicitamos tu cédula únicamente para validar una participación por persona
+            y verificar al ganador antes de entregar el premio.
+          </p>
+        </form>
+      </div>
     </section>
   </main>
 
