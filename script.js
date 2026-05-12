@@ -1,4 +1,4 @@
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbweUshmxJOmi_axjM1JMmzAtvdqIZAFrQftSU1BSEAac9DwWaRJTFI3yp7WG8amouB1/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyJ22tKc1vplj-FTOKNOr4CUyIOGuCh1Tuyq1dUHK91YO056yLLEncJXikgdGr6kYxw/exec";
 
 const form = document.getElementById("raffleForm");
 const submitButton = document.getElementById("submitButton");
