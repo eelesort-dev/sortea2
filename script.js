@@ -1,4 +1,4 @@
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwWQce_oAvhdpOnG2JR5MeUr7Pb_C5mJ4G1KOfaFqc0QUbkPIE2gL0axBS7OCYPGrXt/exec";
+const WEB_APP_URL = "TU_URL_DE_APPS_SCRIPT";
 
 const form = document.getElementById("raffleForm");
 const submitButton = document.getElementById("submitButton");
@@ -12,12 +12,16 @@ function cleanPhone(value) {
   return value.replace(/[^\d+]/g, "").trim();
 }
 
+function cleanDocumentId(value) {
+  return value.replace(/[^\d]/g, "").trim();
+}
+
 function setError(id, message) {
   document.getElementById(id + "Error").textContent = message || "";
 }
 
 function clearErrors() {
-  ["fullName", "whatsapp", "city", "email"].forEach(function (id) {
+  ["fullName", "whatsapp", "email", "documentId", "city", "parish"].forEach(function (id) {
     setError(id, "");
   });
 
@@ -41,23 +45,33 @@ function isValidEmail(email) {
 function validate(data) {
   let valid = true;
 
-  if (data.fullName.length < 3) {
-    setError("fullName", "Ingresa tu nombre completo.");
+  if (data.fullName.length < 6) {
+    setError("fullName", "Ingresa tus nombres y apellidos completos.");
     valid = false;
   }
 
   if (!/^\+?\d{8,15}$/.test(data.whatsapp)) {
-    setError("whatsapp", "Ingresa un WhatsApp válido. Ejemplo: +593999999999");
-    valid = false;
-  }
-
-  if (data.city.length < 2) {
-    setError("city", "Ingresa tu ciudad.");
+    setError("whatsapp", "Ingresa un celular o WhatsApp válido.");
     valid = false;
   }
 
   if (!isValidEmail(data.email)) {
     setError("email", "Ingresa un correo válido.");
+    valid = false;
+  }
+
+  if (!/^\d{10}$/.test(data.documentId)) {
+    setError("documentId", "Ingresa una cédula válida de 10 dígitos.");
+    valid = false;
+  }
+
+  if (data.city !== "MILAGRO") {
+    setError("city", "Selecciona tu ciudad.");
+    valid = false;
+  }
+
+  if (!data.parish) {
+    setError("parish", "Selecciona tu parroquia.");
     valid = false;
   }
 
@@ -95,8 +109,10 @@ form.addEventListener("submit", async function (event) {
   const data = {
     fullName: document.getElementById("fullName").value.trim(),
     whatsapp: cleanPhone(document.getElementById("whatsapp").value),
-    city: document.getElementById("city").value.trim(),
     email: document.getElementById("email").value.trim(),
+    documentId: cleanDocumentId(document.getElementById("documentId").value),
+    city: document.getElementById("city").value,
+    parish: document.getElementById("parish").value,
     terms: document.getElementById("terms").checked,
     marketingConsent: document.getElementById("marketingConsent").checked,
     recaptchaToken: typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "",
