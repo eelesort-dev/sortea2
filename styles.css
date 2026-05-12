@@ -1,0 +1,281 @@
+:root {
+  --bg: #fff8f4;
+  --card: #ffffff;
+  --text: #24201f;
+  --muted: #756b68;
+  --primary: #d83f5f;
+  --primary-dark: #ae2f4a;
+  --accent: #2f8f6b;
+  --border: #ead6cf;
+  --shadow: 0 18px 45px rgba(70, 35, 40, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 140px;
+}
+
+.btn,
+button,
+.whatsapp-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+button:hover {
+  background: var(--primary-dark);
+}
+
+.hero-content {
+  max-width: 1150px;
+  min-height: calc(100vh - 100px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 10px 0 16px;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1;
+}
+
+.hero p,
+.form-layout p,
+.privacy p {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.tag {
+  color: var(--accent);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.hero-img,
+.gallery img {
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.hero-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 80px 24px;
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin: 0 0 24px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cards article,
+form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(70, 35, 40, 0.07);
+}
+
+.cards p {
+  color: var(--muted);
+}
+
+.prize {
+  max-width: none;
+  background: #fff0ec;
+}
+
+.prize h2,
+.gallery {
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 360px;
+}
+
+.form-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 36px;
+  align-items: start;
+}
+
+label {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  height: 48px;
+  margin-top: 7px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: 3px solid rgba(216, 63, 95, 0.16);
+  border-color: var(--primary);
+}
+
+small {
+  display: block;
+  min-height: 18px;
+  margin-top: 4px;
+  color: #b3261e;
+  font-weight: 400;
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.check input {
+  margin-top: 4px;
+}
+
+button {
+  width: 100%;
+  font-size: 16px;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+#messageBox {
+  display: none;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+#messageBox.success {
+  display: block;
+  color: #1f6b32;
+  background: #e7f6ea;
+}
+
+#messageBox.error {
+  display: block;
+  color: #8a1f17;
+  background: #fdecea;
+}
+
+.whatsapp-link {
+  display: none;
+  margin-top: 14px;
+  background: #25d366;
+}
+
+.whatsapp-link.show {
+  display: flex;
+}
+
+.privacy {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 24px;
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  background: white;
+}
+
+@media (max-width: 850px) {
+  .hero-content,
+  .form-layout,
+  .cards,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding-top: 50px;
+  }
+
+  .gallery img {
+    height: 300px;
+  }
+}
