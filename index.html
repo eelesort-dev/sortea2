@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gran Sorteo de una Moto</title>
+  <meta name="description" content="Participa en el Gran Sorteo de una Moto. Registro seguro y rápido.">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Reemplaza TU_RECAPTCHA_SITE_KEY -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <img src="assets/logo.png" alt="Logo del sorteo" class="logo">
+      <a href="#registro" class="btn secondary">Participar</a>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <span class="tag">Sorteo promocional</span>
+        <h1>Participa por una moto nueva</h1>
+        <p>
+          Regístrate una sola vez y participa en el Gran Sorteo de una Moto.
+          El ganador será contactado por WhatsApp.
+        </p>
+        <a href="#registro" class="btn">Participar ahora</a>
+      </div>
+
+      <img src="assets/banner.jpg" alt="Sorteo de una moto" class="hero-img">
+    </section>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>Reglas del sorteo</h2>
+
+      <div class="cards">
+        <article>
+          <h3>Registro único</h3>
+          <p>Cada participante puede registrarse una sola vez usando su número de WhatsApp.</p>
+        </article>
+
+        <article>
+          <h3>Datos reales</h3>
+          <p>El ganador será contactado por WhatsApp. Los datos falsos pueden invalidar la participación.</p>
+        </article>
+
+        <article>
+          <h3>Privacidad</h3>
+          <p>La información se usará únicamente para administrar el sorteo y contactar al ganador.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section prize">
+      <h2>Premio principal</h2>
+
+      <div class="gallery">
+        <img src="assets/premio1.jpg" alt="Moto del sorteo">
+        <img src="assets/banner.jpg" alt="Imagen promocional del sorteo">
+      </div>
+    </section>
+
+    <section class="section" id="registro">
+      <div class="form-layout">
+        <div>
+          <span class="tag">Registro seguro</span>
+          <h2>Completa tus datos</h2>
+          <p>
+            Tus datos serán guardados de forma privada en Google Sheets.
+          </p>
+        </div>
+
+        <form id="raffleForm" novalidate>
+          <label>
+            Nombre completo *
+            <input type="text" id="fullName" autocomplete="name">
+            <small id="fullNameError"></small>
+          </label>
+
+          <label>
+            Número de WhatsApp *
+            <input type="tel" id="whatsapp" placeholder="+593999999999" autocomplete="tel">
+            <small id="whatsappError"></small>
+          </label>
+
+          <label>
+            Ciudad *
+            <input type="text" id="city">
+            <small id="cityError"></small>
+          </label>
+
+          <label>
+            Correo electrónico opcional
+            <input type="email" id="email" autocomplete="email">
+            <small id="emailError"></small>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" id="terms">
+            <span>Acepto los términos, condiciones y política de privacidad.</span>
+          </label>
+          <small id="termsError"></small>
+
+          <label class="check">
+            <input type="checkbox" id="marketingConsent">
+            <span>Acepto recibir información promocional por WhatsApp.</span>
+          </label>
+
+          <div class="g-recaptcha" data-sitekey="TU_RECAPTCHA_SITE_KEY"></div>
+          <small id="captchaError"></small>
+
+          <button type="submit" id="submitButton">
+            <span id="buttonText">Participar ahora</span>
+          </button>
+
+          <div id="messageBox"></div>
+
+          <a href="#" id="whatsappLink" class="whatsapp-link" target="_blank" rel="noopener">
+            Confirmar registro por WhatsApp
+          </a>
+        </form>
+      </div>
+    </section>
+
+    <section class="privacy">
+      <h2>Política de privacidad</h2>
+      <p>
+        Al registrarte aceptas que tus datos sean utilizados únicamente para validar tu participación,
+        contactarte en caso de resultar ganador y gestionar este sorteo. Tus datos no serán vendidos
+        ni compartidos con terceros ajenos a la campaña.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Gran Sorteo de una Moto © 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
