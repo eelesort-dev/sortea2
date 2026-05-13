@@ -115,7 +115,7 @@ form.addEventListener("submit", async function (event) {
     parish: document.getElementById("parish").value,
     terms: document.getElementById("terms").checked,
     marketingConsent: document.getElementById("marketingConsent").checked,
-    recaptchaToken: typeof grecaptcha !== "undefined" ? grecaptcha.getResponse() : "",
+   recaptchaToken: "disabled",
     userAgent: navigator.userAgent
   };
 
