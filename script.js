@@ -4,7 +4,7 @@ const form = document.getElementById("raffleForm");
 const submitButton = document.getElementById("submitButton");
 const buttonText = document.getElementById("buttonText");
 const messageBox = document.getElementById("messageBox");
-const whatsappLink = document.getElementById("whatsappLink");
+// const whatsappLink = document.getElementById("whatsappLink");
 
 let sending = false;
 
@@ -30,7 +30,8 @@ function clearErrors() {
 
   messageBox.className = "";
   messageBox.textContent = "";
-  whatsappLink.classList.remove("show");
+  // whatsappLink.classList.remove("show");
+
 }
 
 function showMessage(type, message) {
@@ -97,11 +98,14 @@ function setLoading(status) {
   buttonText.textContent = status ? "Enviando..." : "Participar ahora";
 }
 
+/*
 function createWhatsAppLink(phone, name) {
   const clean = phone.replace("+", "");
   const text = `Hola, soy ${name}. Confirmo mi registro para el Gran Sorteo de una Moto.`;
   return `https://wa.me/${clean}?text=${encodeURIComponent(text)}`;
 }
+*/
+
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -154,8 +158,8 @@ setLoading(true);
     }
 
     showMessage("success", result.message || "Registro exitoso.");
-    whatsappLink.href = createWhatsAppLink(data.whatsapp, data.fullName);
-    whatsappLink.classList.add("show");
+ // whatsappLink.href = createWhatsAppLink(data.whatsapp, data.fullName);
+// whatsappLink.classList.add("show");
 
     form.reset();
 
