@@ -125,8 +125,17 @@ form.addEventListener("submit", async function (event) {
 
   if (!validate(data)) return;
 
-  sending = true;
-  setLoading(true);
+const confirmed = window.confirm(
+  "Verifica bien tus datos antes de participar.\n\n" +
+  "Una vez enviado el registro, no podrás registrarte nuevamente con la misma cédula o WhatsApp.\n\n" +
+  "¿Confirmas que tus datos están correctos?"
+);
+
+if (!confirmed) return;
+
+sending = true;
+setLoading(true);
+
 
   try {
     const response = await fetch(WEB_APP_URL, {
