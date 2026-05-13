@@ -26,7 +26,8 @@ function clearErrors() {
   });
 
   document.getElementById("termsError").textContent = "";
-  document.getElementById("captchaError").textContent = "";
+  // document.getElementById("captchaError").textContent = "";
+
   messageBox.className = "";
   messageBox.textContent = "";
   whatsappLink.classList.remove("show");
@@ -80,10 +81,13 @@ function validate(data) {
     valid = false;
   }
 
-  if (!data.recaptchaToken) {
-    document.getElementById("captchaError").textContent = "Confirma que no eres un robot.";
-    valid = false;
-  }
+  /*
+if (!data.recaptchaToken) {
+  document.getElementById("captchaError").textContent = "Confirma que no eres un robot.";
+  valid = false;
+}
+*/
+
 
   return valid;
 }
